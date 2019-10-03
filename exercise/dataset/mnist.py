@@ -90,6 +90,8 @@ def load_mnist(normalize=True, flatten=True, one_hot_label=False):
         else return the value like [0,0,1,0,0,0,0,0,0,0]
     flatten : reshape the images to one dimension
     ----------
+    Return
+    (train_img, train_label), (test_img, test_label)
     '''
     if not os.path.exists(save_file):
         init_mnist()
