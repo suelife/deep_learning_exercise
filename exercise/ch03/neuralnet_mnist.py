@@ -36,4 +36,7 @@ for i in range(len(x_test)):
     p = np.argmax(y)
     if p == y_test[i]:
         accuracy_cnt += 1
-print('Accuracy: {}'.format(str(float(accuracy_cnt / len(x_test)))))
+    if i % 1000 == 0:
+    print('Accuracy: {}'.format(str(float(accuracy_cnt / len(x_test)))))
+
+print('Final Accuracy: {}'.format(str(float(accuracy_cnt / len(x_test)))))
