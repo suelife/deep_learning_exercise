@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 # ch03
 def step_function(x):
     return np.array(x > 0).astype(np.int) # or np.array(x>0, dtype=np.int) 
@@ -13,6 +14,15 @@ def sigmoid(x, deriv=False):
 
 def relu(x):
     return np.maximum(0, x)
+
+def identity_function(x):
+    return x
+
+def softmax(x):
+    max_x = np.max(x)
+    exp_x = np.exp(x - max_x)
+    total_exp = np.sum(exp_x)
+    return exp_x / total_exp
 
 
 if __name__ == '__main__':
