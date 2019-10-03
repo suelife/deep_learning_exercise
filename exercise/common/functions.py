@@ -28,6 +28,12 @@ def softmax(x):
     total_exp = np.sum(exp_x)
     return exp_x / total_exp
 
+def mean_squared(y, t):
+    return 0.5 * np.sum((y - t)**2)
+
+def cross_entropy(y, t):
+    delta = 1e-7
+    return -np.sum(t*np.log(y + delta)) # Add a small value to prevent negative infinity
 
 if __name__ == '__main__':
     x = np.arange(-5.0, 5.0, 0.1)
