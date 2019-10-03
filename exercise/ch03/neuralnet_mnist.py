@@ -37,5 +37,7 @@ for i in range(len(x_test)):
     p = np.argmax(y) # Return the index of the maximum value
     if p == y_test[i]:
         accuracy_cnt += 1
+    if i % 2000 == 0:
+        print('Accuracy: ' + str(float(accuracy_cnt) / len(x_test)))
 
-print('Accuracy: ' + str(float(accuracy_cnt) / len(x_test)))
+print('Final Accuracy: ' + str(float(accuracy_cnt) / len(x_test)))
