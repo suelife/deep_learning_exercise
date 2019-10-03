@@ -1,7 +1,8 @@
+import os, sys
+sys.path.append(os.pardir)
 import numpy as np
 import matplotlib.pyplot as plt
-from step_function import step_function
-from sigmoid import sigmoid
+from common.functions import *
 
 x = np.arange(-5.0, 5.0, 0.1)
 y_step = step_function(x)
