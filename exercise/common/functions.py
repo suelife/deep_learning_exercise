@@ -20,7 +20,7 @@ def identity_function(x):
 
 def softmax(x):
     max_x = np.max(x)
-    exp_x = np.exp(x - max_x)
+    exp_x = np.exp(x - max_x) # That x value minus the max value from x, to prevent overflow.
     total_exp = np.sum(exp_x)
     return exp_x / total_exp
 
