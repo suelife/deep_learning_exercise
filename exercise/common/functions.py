@@ -12,7 +12,11 @@ def sigmoid(x, deriv=False):
     else:
         return 1 / (1 + np.exp(-x))
 
-def relu(x):
+def relu(x, deriv=False):
+    if deriv == True:
+        grad = np.zeros(x)
+        grad[x>=0] = 1
+        return grad
     return np.maximum(0, x)
 
 def identity_function(x):
