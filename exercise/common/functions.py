@@ -4,16 +4,16 @@ import matplotlib.pyplot as plt
 
 # ch03
 def step_function(x):
-    return np.array(x > 0).astype(np.int) # or np.array(x>0, dtype=np.int) 
+    return np.array(x>0).astype(np.int) # or np.array(x>0, dtype=np.int) 
 
 def sigmoid(x, deriv=False):
-    if deriv == True:
-        return x * (1 - x)
+    if deriv:
+        return x * (1-x)
     else:
-        return 1 / (1 + np.exp(-x))
+        return 1 / (1+np.exp(-x))
 
 def relu(x, deriv=False):
-    if deriv == True:
+    if deriv:
         grad = np.zeros(x)
         grad[x>=0] = 1
         return grad
@@ -24,17 +24,17 @@ def identity_function(x):
 
 def softmax(x):
     max_x = np.max(x)
-    exp_x = np.exp(x - max_x) # That x value minus the max value from x, to prevent overflow.
+    exp_x = np.exp(x-max_x) # That x value minus the max value from x, to prevent overflow.
     total_exp = np.sum(exp_x)
     return exp_x / total_exp
 
 # ch04
 def mean_squared_error(y, t):
-    return 0.5 * np.sum((y - t)**2)
+    return 0.5 * np.sum((y-t)**2)
 
 def cross_entropy_error(y, t):
     delta = 1e-7
-    return -np.sum(t*np.log(y + delta)) # Add a small value to prevent negative infinity
+    return -np.sum(t*np.log(y+delta)) # Add a small value to prevent negative infinity
 
 if __name__ == '__main__':
     # x = np.arange(-5.0, 5.0, 0.1)
