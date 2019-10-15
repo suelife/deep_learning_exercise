@@ -18,10 +18,6 @@ def function_1(x):
 def tangent_line(f, x):
     d = numerical_diff(f, x)
     print(d)
-    y_f = f(x)
-    d_x = d*x
-    print(y_f)
-    print(d_x)
     y = f(x) - d*x
     return lambda t: d*t + y
 
