@@ -37,26 +37,26 @@ def cross_entropy_error(y, t):
     return -np.sum(t*np.log(y+delta)) # Add a small value to prevent negative infinity
 
 if __name__ == '__main__':
-    # x = np.arange(-5.0, 5.0, 0.1)
-    # step_y = step_function(x)
-    # sig_y = sigmoid(x)
-    # relu_y = relu(x)
+    x = np.arange(-5.0, 5.0, 0.1)
+    step_y = step_function(x)
+    sig_y = sigmoid(x)
+    relu_y = relu(x)
     
-    # plt.subplot(1, 3, 1, figsize=(15,15))
-    # plt.plot(x, step_y)
-    # plt.title('Step Function')
+    plt.subplot(1, 3, 1, figsize=(15,15))
+    plt.plot(x, step_y)
+    plt.title('Step Function')
 
-    # plt.subplot(1, 3, 2)
-    # plt.plot(x, sig_y)
-    # plt.title('Sigmoid')
+    plt.subplot(1, 3, 2)
+    plt.plot(x, sig_y)
+    plt.title('Sigmoid')
 
-    # plt.subplot(1, 3, 3)
-    # plt.plot(x, relu_y)
-    # plt.title('ReLU')
+    plt.subplot(1, 3, 3)
+    plt.plot(x, relu_y)
+    plt.title('ReLU')
 
-    # plt.show()
+    plt.show()
 
-    # t = np.array([0, 0, 1, 0, 0, 0, 0,  0, 0, 0])
-    # y = np.array([0.1, 0.05, 0.6, 0.0, 0.05, 0.1, 0.0, 0.1, 0.0, 0.0])
-    # resu = mean_squared_error(y, t)
-    # print(resu)
+    t = np.array([0, 0, 1, 0, 0, 0, 0,  0, 0, 0])
+    y = np.array([0.1, 0.05, 0.6, 0.0, 0.05, 0.1, 0.0, 0.1, 0.0, 0.0])
+    resu = mean_squared_error(y, t)
+    print(resu)
