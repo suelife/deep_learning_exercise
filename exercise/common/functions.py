@@ -8,7 +8,7 @@ def step_function(x):
 
 def sigmoid(x, deriv=False):
     if deriv:
-        return x * (1-x)
+        return (1.0 - sigmoid(x)) * sigmoid(x)
     else:
         return 1 / (1+np.exp(-x))
 
@@ -23,10 +23,14 @@ def identity_function(x):
     return x
 
 def softmax(x):
-    max_x = np.max(x)
-    exp_x = np.exp(x-max_x) # That x value minus the max value from x, to prevent overflow.
-    total_exp = np.sum(exp_x)
-    return exp_x / total_exp
+    if x.ndim == 2:
+        x = x.T
+        x = x - np.max(x, axis=0)
+        y = np.exp(x) / np.sum(np.exp(x), axis=0)
+        return y.T 
+
+    x = x - np.max(x) # オーバーフロー対策
+    return np.exp(x) / np.sum(np.exp(x))
 
 # ch04
 def mean_squared_error(y, t):
